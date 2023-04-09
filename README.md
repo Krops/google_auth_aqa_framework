@@ -9,6 +9,9 @@
   ```shell
   pip install -r requirements.txt
   ```
+
+## 4. Set env variables
+    GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxx
 ## 4. RUN tests
   ```shell
   pytest /test
