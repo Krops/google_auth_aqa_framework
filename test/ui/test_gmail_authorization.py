@@ -4,11 +4,12 @@ from playwright.sync_api import expect
 
 @pytest.mark.parametrize(
     "email", ["andrekropes@gmail.com"], indirect=True)
-def test_valid_gmail_login(email, google_auth_page, password):
+def test_valid_gmail_login(email, google_auth_page, password_by_user):
+    """Positive login scenario."""
     google_auth_page.navigate_here()
     google_auth_page.fill_email(email)
     google_auth_page.next_email_button.click()
-    google_auth_page.fill_password(password)
+    google_auth_page.fill_password(password_by_user)
     google_auth_page.next_password_button.click()
     assert google_auth_page.is_user_authorized(email)
 
@@ -17,6 +18,7 @@ def test_valid_gmail_login(email, google_auth_page, password):
     "email",
     (("sdfsf@gmail.com"), ("")))
 def test_invalid_missing_gmail_login(google_auth_page, email):
+    """Negative login scenario using invalid login name."""
     google_auth_page.navigate_here()
     google_auth_page.fill_email(email)
     google_auth_page.next_email_button.click()
@@ -27,6 +29,7 @@ def test_invalid_missing_gmail_login(google_auth_page, email):
     "password",
     (("sdfsdfsdg"), ("")))
 def test_invalid_missing_gmail_password(google_auth_page, password):
+    """Negative login scenario using invalid password."""
     google_auth_page.navigate_here()
     google_auth_page.fill_email("andrekropes@gmail.com")
     google_auth_page.next_email_button.click()

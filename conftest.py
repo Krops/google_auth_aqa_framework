@@ -60,7 +60,7 @@ def email(request: pytest.FixtureRequest) -> str:
 
 
 @pytest.fixture
-def password(email: str) -> str:
+def password_by_user(email: str) -> str:
     get_password_by_user = {
         "andrekropes@gmail.com": os.environ.get("GMAIL_PASSWORD")
     }
