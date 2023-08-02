@@ -12,7 +12,6 @@
   ```
 
 ## 4. Set env variables
-    GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxx
     GMAIL_PASSWORD=sdfsdfsdf
 ## 4. RUN tests
   ```shell
